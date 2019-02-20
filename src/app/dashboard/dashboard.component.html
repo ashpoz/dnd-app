@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center pt-4">
+      <h2 class="text-center">Select a character:</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <a *ngFor="let character of characters" routerLink="/character/attributes/{{character.id}}" class="character">
+      <img src="{{character.image}}" alt="">
+      <h3>{{character.name}}</h3>
+    </a>
+    <!-- <a class="character">
+      <img src="https://via.placeholder.com/150" alt="">
+      <h3>Character 2</h3>
+    </a>
+    <a class="character">
+      <img src="https://via.placeholder.com/150" alt="">
+      <h3>Character 3</h3>
+    </a> -->
+  </div>
+</div>
