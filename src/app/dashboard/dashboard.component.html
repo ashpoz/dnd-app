@@ -6,24 +6,9 @@
 
 <div class="container">
   <div class="d-flex justify-content-center">
-<<<<<<< HEAD
-    <a *ngFor="let character of characters" routerLink="/character/attributes/{{character.id}}" class="character">
-      <img src="{{character.image}}" alt="">
-      <h3>{{character.name}}</h3>
-    </a>
-    <!-- <a class="character">
-      <img src="https://via.placeholder.com/150" alt="">
-      <h3>Character 2</h3>
-    </a>
-    <a class="character">
-      <img src="https://via.placeholder.com/150" alt="">
-      <h3>Character 3</h3>
-    </a> -->
-=======
     <a *ngFor="let character of characters" routerLink="/character/{{character.id}}" class="character">
       <img src="{{character.image}}" alt="">
       <h3>{{character.name}}</h3>
     </a>
->>>>>>> 9b3924d016c5bf22300fa2ca16b1606e734d1c20
   </div>
 </div>
