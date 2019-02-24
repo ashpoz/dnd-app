@@ -11,14 +11,15 @@ const characterRoutes: Routes = [
     children: [
       {
         path: ':id',
-        component: CharacterComponent
+        component: CharacterComponent,
+        children: [
+          { path: 'attributes', component: AttributesComponent },
+          { path: 'spells', component: SpellsComponent },
+          { path: 'equipment', component: EquipmentComponent },
+        ]
       },
-      { path: 'attributes', component: AttributesComponent }
     ]
   }
-  // { path: 'attributes', component: AttributesComponent },
-  // { path: 'spells', component: SpellsComponent },
-  // { path: 'equipment', component: EquipmentComponent },
 ];
 
 @NgModule({

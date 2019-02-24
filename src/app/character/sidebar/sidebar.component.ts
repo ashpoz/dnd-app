@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CHARACTERS } from '../../characters';
-import {Input} from '@angular/core';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.character);
+    console.log('sidebar ' + this.character);
   }
 
 }
