@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AttributesComponent } from './character/attributes/attributes.component';
 import { SpellsComponent } from './character/spells/spells.component';
 import { EquipmentComponent } from './character/equipment/equipment.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,15 @@ import { EquipmentComponent } from './character/equipment/equipment.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CharacterRoutingModule
+    CharacterRoutingModule,
+//     HttpClientModule,
+
+// // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+// // and returns simulated server responses.
+// // Remove it when a real server is ready to receive requests.
+// HttpClientInMemoryWebApiModule.forRoot(
+//   InMemoryDataService, { dataEncapsulation: false }
+// )
   ],
   providers: [],
   bootstrap: [AppComponent]

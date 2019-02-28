@@ -10,11 +10,12 @@ import { Input } from '@angular/core';
 export class SidebarComponent implements OnInit {
   @Input() character;
   characters = CHARACTERS;
+  characterID;
 
   constructor() { }
 
   ngOnInit() {
-    console.log('sidebar ' + this.character);
+    this.characterID = this.character;
   }
 
 }
