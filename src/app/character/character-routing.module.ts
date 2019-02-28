@@ -5,6 +5,7 @@ import { CharacterComponent } from './character.component';
 import { SpellsComponent } from './spells/spells.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 
+
 const characterRoutes: Routes = [
   {
     path: 'character',
