@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CHARACTERS } from '../characters';
+import { Character } from '../character';
+import { CharacterService } from '../character.service';
+
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -9,13 +11,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class CharacterComponent implements OnInit {
 
-  characters = CHARACTERS;
   characterID;
+  characters: Character[];
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router
-  ) {
+    private _router: Router,
+    private characterService: CharacterService) {
   }
 
   ngOnInit() {

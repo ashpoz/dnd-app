@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CHARACTERS } from './characters';
 
 @Component({
   selector: 'app-root',

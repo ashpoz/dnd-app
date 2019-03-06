@@ -1,5 +1,10 @@
 <div class="nav flex-column nav-pills" role="sidebar" aria-orientation="vertical">
+    <h5>{{character.name}}</h5>
     <a class="nav-link" routerLink="/character/{{ characterID }}/attributes/" routerLinkActive="active" role="tab" aria-controls="v-pills-home" aria-selected="true">Attributes</a>
     <a class="nav-link" routerLink="/character/{{ characterID }}/spells/" routerLinkActive="active" role="tab">Spells</a>
     <a class="nav-link" routerLink="/character/{{ characterID }}/equipment/" routerLinkActive="active" role="tab">Equipment</a>
+</div>
+
+<div class="pt-4 text-center">
+    <button type="button" class="btn btn-dark" (click)="save()">Save</button>
 </div>

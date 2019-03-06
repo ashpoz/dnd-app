@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CHARACTERS } from '../../characters';
 import { Input } from '@angular/core';
 
 @Component({
@@ -9,7 +8,6 @@ import { Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   @Input() character;
-  characters = CHARACTERS;
   characterID;
 
   constructor() { }

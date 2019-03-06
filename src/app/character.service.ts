@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+
 import { Character } from './character';
-import { CHARACTERS } from './characters';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +11,19 @@ import { CHARACTERS } from './characters';
 
 
 export class CharacterService {
+  private characterUrl = 'api/characters';  // URL to web api
 
-    getCharacter(): Character[] {
-        return CHARACTERS;
+  constructor(
+    private http: HttpClient) { }
+
+    getCharacters(): Observable<Character[]> {
+      return this.http.get<Character[]>(this.characterUrl);
     }
 
-    constructor() { }
+    updateCharacter (character: Character): Observable<any> {
+      return this.http.put(this.charactersUrl, character, httpOptions).pipe(
+        tap(_ => this.log(`updated character id=${hecharacterro.id}`)),
+        catchError(this.handleError<any>('updateCharacter'))
+      );
+    }
 }
