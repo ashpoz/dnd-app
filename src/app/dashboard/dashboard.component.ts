@@ -19,4 +19,13 @@ export class DashboardComponent implements OnInit {
     this.characterService.getCharacters()
       .subscribe(characters => this.characters = characters);
   }
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.characterService.addCharacter({ name } as Character)
+      .subscribe(character => {
+        this.characters.push(character);
+      });
+  }
+
 }

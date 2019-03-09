@@ -19,9 +19,9 @@ export class SidebarComponent implements OnInit {
     this.characterID = this.character;
   }
 
-  save(): void {
-    this.characterService.updateCharacter(this.character)
-      .subscribe(() => this.goBack());
-  }
+  // save(): void {
+  //   this.characterService.updateCharacter(this.character)
+  //     .subscribe(() => this.goBack());
+  // }
 
 }

@@ -1,1 +1,34 @@
-  <h2>atts work!!</h2>
+<h2>Attributes</h2>
+
+<form [formGroup]="abilityScoresForm">
+  <label>
+    Strength:
+    <input type="number" formControlName="strengthModifier">
+    <input (change)="updateMod()" type="number" formControlName="strengthAbilityScore">
+  </label>
+  <label>
+    Dexterity:
+    <input type="number" formControlName="dexterityModifier">
+    <input type="number" formControlName="dexterityAbilityScore">
+  </label>
+  <label>
+    Constitution:
+    <input type="number" formControlName="constitutionModifier">
+    <input type="number" formControlName="constitutionAbilityScore">
+  </label>
+  <label>
+    Intelligence:
+    <input type="number" formControlName="intelligenceModifier">
+    <input type="number" formControlName="intelligenceAbilityScore">
+  </label>
+  <label>
+    Wisdom:
+    <input type="number" formControlName="wisdomModifier">
+    <input type="number" formControlName="wisdomAbilityScore">
+  </label>
+  <label>
+    Charisma
+    <input type="number" formControlName="charismaModifier">
+    <input type="number" formControlName="charismaAbilityScore">
+  </label>
+</form>

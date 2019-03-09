@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -30,6 +35,9 @@ import { EquipmentComponent } from './character/equipment/equipment.component';
     AppRoutingModule,
     CharacterRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    ReactiveFormsModule,
 
 // // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // // and returns simulated server responses.

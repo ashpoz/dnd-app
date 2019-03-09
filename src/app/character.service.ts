@@ -5,6 +5,10 @@ import { Character } from './character';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,10 +24,22 @@ export class CharacterService {
       return this.http.get<Character[]>(this.characterUrl);
     }
 
-    updateCharacter (character: Character): Observable<any> {
-      return this.http.put(this.charactersUrl, character, httpOptions).pipe(
-        tap(_ => this.log(`updated character id=${hecharacterro.id}`)),
-        catchError(this.handleError<any>('updateCharacter'))
+    /** POST: add a new hero to the server */
+    addCharacter (character: Character): Observable<Character> {
+      return this.http.post<Character>(this.characterUrl, character, httpOptions).pipe(
+        tap((newCharacter: Character) => console.log(`added hero w/ id=${newCharacter.id}`)),
+        catchError(this.handleError<Character>('addCharacter'))
       );
+    }
+
+    private handleError<T> (operation = 'operation', result?: T) {
+      return (error: any): Observable<T> => {
+        // TODO: send the error to remote logging infrastructure
+        console.error(error); // log to console instead
+        // TODO: better job of transforming error for user consumption
+        console.log(`${operation} failed: ${error.message}`);
+        // Let the app keep running by returning an empty result.
+        return of(result as T);
+      };
     }
 }
