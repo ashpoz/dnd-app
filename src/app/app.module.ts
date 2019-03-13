@@ -3,15 +3,19 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+import { CharacterService } from './character.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CharacterRoutingModule } from './character/character-routing.module';
+
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './character/character.component';
 import { SidebarComponent } from './character/sidebar/sidebar.component';
@@ -37,6 +41,8 @@ import { EquipmentComponent } from './character/equipment/equipment.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
 
 // // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -46,7 +52,7 @@ HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false }
 )
   ],
-  providers: [],
+  providers: [CharacterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

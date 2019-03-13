@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from '../character';
 import { CharacterService } from '../character.service';
 
 import {ActivatedRoute, Router} from '@angular/router';
@@ -12,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class CharacterComponent implements OnInit {
 
   characterID;
-  characters: Character[];
+  characters;
 
   constructor(
     private _route: ActivatedRoute,
@@ -24,6 +23,8 @@ export class CharacterComponent implements OnInit {
     this._route.params.subscribe(params => {
         this.characterID = params.id;
     });
+
+    this.characterService.getChars().subscribe(characters => this.characters = characters);
   }
 
 }

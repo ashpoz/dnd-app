@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
+import { CharacterService } from '../../character.service';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -8,9 +9,11 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./attributes.component.scss']
 })
 export class AttributesComponent implements OnInit {
-  @Input() character;
 
-  constructor() { }
+  @Input() character;
+  @Input() characters;
+
+  constructor(private characterService: CharacterService) { }
 
   // Attributes form control
   // Panel 1
@@ -31,7 +34,7 @@ export class AttributesComponent implements OnInit {
 
   updatedMod;
 
-  updateMod() {
+  updateMod(value: number) {
     this.updatedMod = Math.floor((this.abilityScoresForm.get('strengthAbilityScore').value - 10) / 2);
     this.abilityScoresForm.controls['strengthModifier'].setValue(this.updatedMod);
   }

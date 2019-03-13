@@ -4,29 +4,29 @@
   </div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <div class="row justify-content-center pt-4">
       <button class="btn btn-primary"
-              data-toggle="modal" data-target="#exampleModal">
+              data-toggle="modal" data-target="#addCharacterModal">
       Add Character</button>
   </div>
-</div>
+</div> -->
 
 <div class="container">
   <div class="d-flex justify-content-center">
-    <a *ngFor="let character of characters" routerLink="/character/{{character.id}}/attributes" class="character">
-      <img src="{{character.image}}" alt="">
+    <a *ngFor="let character of characters || async" routerLink="/character/{{character.id}}/attributes" class="character">
+      <img class="img-thumbnail" src="{{character.image}}" alt="">
       <h3>{{character.name}}</h3>
     </a>
   </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="addCharacterModal" tabindex="-1" role="dialog" aria-labelledby="addCharacterModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="addCharacterModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -40,4 +40,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

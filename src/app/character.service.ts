@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 
-import { Character } from './character';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -17,20 +17,14 @@ const httpOptions = {
 export class CharacterService {
   private characterUrl = 'api/characters';  // URL to web api
 
-  constructor(
-    private http: HttpClient) { }
+  characters: Observable<any[]>;
+  constructor(db: AngularFirestore) {
+    this.characters = db.collection('characters').valueChanges();
+  }
 
-    getCharacters(): Observable<Character[]> {
-      return this.http.get<Character[]>(this.characterUrl);
-    }
-
-    /** POST: add a new hero to the server */
-    addCharacter (character: Character): Observable<Character> {
-      return this.http.post<Character>(this.characterUrl, character, httpOptions).pipe(
-        tap((newCharacter: Character) => console.log(`added hero w/ id=${newCharacter.id}`)),
-        catchError(this.handleError<Character>('addCharacter'))
-      );
-    }
+  getChars() {
+    return this.characters;
+  }
 
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 
-import { Character } from '../../character';
 import { CharacterService } from '../../character.service';
 
 @Component({
@@ -11,12 +10,16 @@ import { CharacterService } from '../../character.service';
 })
 export class SidebarComponent implements OnInit {
   @Input() character;
+  @Input() characters;
+
   characterID;
+  characterName;
 
   constructor(private characterService: CharacterService) { }
 
   ngOnInit() {
     this.characterID = this.character;
+    this.characterName = this.characters;
   }
 
   // save(): void {
