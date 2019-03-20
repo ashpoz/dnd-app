@@ -20,6 +20,11 @@ export class DashboardComponent implements OnInit {
       .subscribe(characters => this.characters = characters);
   }
 
+  add(id: number): void {
+    // 1. needs to create a new id number
+    // 2. add new character to the firebase database
+  }
+
   ngOnInit() {
     this.getCharacters();
   }
