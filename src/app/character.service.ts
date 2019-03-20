@@ -26,6 +26,10 @@ export class CharacterService {
     return this.characters;
   }
 
+  addChar(character) {
+    // need to figure out how to push to db
+  }
+
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
         // TODO: send the error to remote logging infrastructure
