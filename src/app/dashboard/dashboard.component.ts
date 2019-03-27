@@ -15,19 +15,28 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private characterService: CharacterService) { }
 
+    add() {
+      // 1. needs to create a new id number
+      // 2. add new character to the firebase database
+      this.characterService.addChar()
+      .subscribe(characters => this.characters = characters);
+      // console.log(this.newID);
+      return this.characters.length + 1;
+    }
+
   getCharacters(): void {
     this.characterService.getChars()
       .subscribe(characters => this.characters = characters);
   }
 
-  add(id: number): void {
-    // 1. needs to create a new id number
-    // 2. add new character to the firebase database
-  }
 
   ngOnInit() {
     this.getCharacters();
+    // have to perform add() function AFTER the firebase data is successfully retrieved
+    this.add();
   }
+
+
 
 }
 

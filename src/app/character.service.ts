@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,17 +17,21 @@ const httpOptions = {
 export class CharacterService {
   private characterUrl = 'api/characters';  // URL to web api
 
-  characters: Observable<any[]>;
-  constructor(db: AngularFirestore) {
+  characters: Observable<any>;
+  // characterObjs = this.characters.valueChanges();
+
+  constructor(private db: AngularFirestore) {
     this.characters = db.collection('characters').valueChanges();
   }
+
 
   getChars() {
     return this.characters;
   }
 
-  addChar(character) {
+  addChar() {
     // need to figure out how to push to db
+    return this.characters;
   }
 
     private handleError<T> (operation = 'operation', result?: T) {
