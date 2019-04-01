@@ -24,15 +24,21 @@ export class CharacterService {
     this.characters = db.collection('characters').valueChanges();
   }
 
+  createChar(value, image) {
+    return this.db.collection('characters').add({
+      name: value.name,
+      image: image
+    });
+  }
 
   getChars() {
     return this.characters;
   }
 
-  addChar() {
-    // need to figure out how to push to db
-    return this.characters;
-  }
+  // addChar() {
+  //   // need to figure out how to push to db
+  //   return this.characters;
+  // }
 
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
