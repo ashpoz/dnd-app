@@ -19,6 +19,10 @@ export class CharacterComponent implements OnInit {
     private characterService: CharacterService) {
   }
 
+  onSave(value) {
+    this.characterService.createChar(value, this.characterID);
+  }
+
   ngOnInit() {
     this._route.params.subscribe(params => {
         this.characterID = params.id;

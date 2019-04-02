@@ -18,6 +18,7 @@ export class AttributesComponent implements OnInit {
   // Attributes form control
   // Panel 1
   abilityScoresForm = new FormGroup({
+    name: new FormControl(),
     strengthModifier: new FormControl(1),
     strengthAbilityScore: new FormControl(10),
     dexterityModifier: new FormControl(1),

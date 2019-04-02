@@ -24,10 +24,11 @@ export class CharacterService {
     this.characters = db.collection('characters').valueChanges();
   }
 
-  createChar(value, image) {
+  createChar(value, id) {
     return this.db.collection('characters').add({
       name: value.name,
-      image: image
+      // image: value.image,
+      id: id
     });
   }
 

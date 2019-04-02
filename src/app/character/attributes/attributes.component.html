@@ -2,7 +2,11 @@
 
 <h3>{{ characterName }}</h3>
 
-<form [formGroup]="abilityScoresForm">
+<form [formGroup]="abilityScoresForm" (ngSubmit)="onSave(abilityScoresForm.value)">
+  <label for="" style="width: 100%;">
+    Name:
+    <input type="text" formControlName="name">
+  </label>
   <label>
     Strength:
     <input type="number" formControlName="strengthModifier">
@@ -33,4 +37,11 @@
     <input type="number" formControlName="charismaModifier">
     <input type="number" formControlName="charismaAbilityScore">
   </label>
+
+  <div class="row submit-button-container">
+      <div class="col-md-4">
+        <button mat-raised-button class="btn btn-primary" color="primary" type="submit" [disabled]="!abilityScoresForm.valid">Create</button>
+      </div>
+    </div>
+
 </form>
