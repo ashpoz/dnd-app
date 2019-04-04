@@ -1,8 +1,102 @@
-<div class="row">
-    <app-sidebar class="col-3" [character]="characterID"></app-sidebar>
-    <div class="col-9">
-        <router-outlet></router-outlet>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 pt-3">
+            <h2>Character</h2>
+            <label for="" style="width: 100%;">
+                Character Name:
+                <input type="text" name="name" value="Name">
+            </label>
+            <label for="" style="width: 100%;">
+                Character Image:
+                <input type="text" name="image" value="Image URL">
+            </label>
+            <ul class="nav nav-tabs pt-3" id="charactersTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#attributes" role="tab" aria-controls="home" aria-selected="true">Attributes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#spells" role="tab" aria-controls="profile" aria-selected="false">Spells</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#equipment" role="tab" aria-controls="contact" aria-selected="false">Equipment</a>
+                </li>
+            </ul>
+            <div class="container">
+                <div class="row pt-3">
+                    <div class="tab-content" id="charactersTabContent">
+                        <!-- ATTRIBUTES -->
+                        <div class="tab-pane fade show active" id="attributes" role="tabpanel" aria-labelledby="attributes-tab">
+                            <label for="" style="width: 100%;">
+                               Att 1:
+                                <input type="number" name="att-1" value="1">
+                            </label>
+                            <label for="" style="width: 100%;">
+                                Att 2:
+                                <input type="tenumberxt" name="att-2" value="10">
+                            </label>
+                        </div>
+                        <!-- SPELLS -->
+                        <div class="tab-pane fade" id="spells" role="tabpanel" aria-labelledby="spells-tab">
+            
+                        </div>
+                        <!-- EQUIPMENT -->
+                        <div class="tab-pane fade" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- <form [formGroup]="abilityScoresForm">
+            <label for="" style="width: 100%;">
+                Name:
+                <input type="text" formControlName="name">
+            </label>
+            <label for="" style="width: 100%;">
+                Image:
+                <input type="text" formControlName="image">
+            </label> -->
+            <!-- <label>
+                Strength:
+                <input type="number" formControlName="strengthModifier">
+                <input (change)="updateMod()" type="number" formControlName="strengthAbilityScore">
+            </label>
+            <label>
+                Dexterity:
+                <input type="number" formControlName="dexterityModifier">
+                <input type="number" formControlName="dexterityAbilityScore">
+            </label>
+            <label>
+                Constitution:
+                <input type="number" formControlName="constitutionModifier">
+                <input type="number" formControlName="constitutionAbilityScore">
+            </label>
+            <label>
+                Intelligence:
+                <input type="number" formControlName="intelligenceModifier">
+                <input type="number" formControlName="intelligenceAbilityScore">
+            </label>
+            <label>
+                Wisdom:
+                <input type="number" formControlName="wisdomModifier">
+                <input type="number" formControlName="wisdomAbilityScore">
+            </label>
+            <label>
+                Charisma
+                <input type="number" formControlName="charismaModifier">
+                <input type="number" formControlName="charismaAbilityScore">
+            </label> -->
+    
+            <!-- </form> -->
+    
+            <button 
+                (click)="onSave()"
+                class="btn btn-primary save-btn">
+                Save
+            </button>
+
+        </div>
 </div>
+
 
 

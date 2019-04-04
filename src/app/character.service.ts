@@ -27,7 +27,7 @@ export class CharacterService {
   createChar(value, id) {
     return this.db.collection('characters').add({
       name: value.name,
-      // image: value.image,
+      image: value.image,
       id: id
     });
   }

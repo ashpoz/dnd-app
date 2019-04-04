@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
 import { CharacterService } from '../../character.service';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -13,12 +13,15 @@ export class AttributesComponent implements OnInit {
   @Input() character;
   @Input() characters;
 
+  @Output() characterName = new EventEmitter<string>();
+
   constructor(private characterService: CharacterService) { }
 
   // Attributes form control
   // Panel 1
   abilityScoresForm = new FormGroup({
     name: new FormControl(),
+    image: new FormControl(),
     strengthModifier: new FormControl(1),
     strengthAbilityScore: new FormControl(10),
     dexterityModifier: new FormControl(1),
@@ -34,6 +37,10 @@ export class AttributesComponent implements OnInit {
   });
 
   updatedMod;
+
+  updateStats(value) {
+    // read form input values
+  }
 
   updateMod(value: number) {
     this.updatedMod = Math.floor((this.abilityScoresForm.get('strengthAbilityScore').value - 10) / 2);
